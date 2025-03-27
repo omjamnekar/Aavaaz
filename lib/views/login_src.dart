@@ -119,102 +119,104 @@ class _LoginScreenState extends State<LoginScreen>
                     duration: const Duration(milliseconds: 1400),
                     child: Form(
                       key: loginVM.globalkey,
-                      child: Column(
-                        mainAxisAlignment: MainAxisAlignment.center,
-                        crossAxisAlignment: CrossAxisAlignment.center,
-                        children: [
-                          Align(
-                            alignment: Alignment.centerLeft,
-                            child: Text(
-                              "Email",
-                              style: AppTextStyles.label,
-                            ),
-                          ),
-                          const SizedBox(height: 5),
-                          glassTextField(
-                            hintText: 'abc@gmail.com',
-                            controller: loginVM.email,
-                            isPasswordField: false,
-                            obscureText: false,
-                            toggleObscureText: () => null,
-                          ),
-                          const SizedBox(height: 20),
-                          Align(
-                            alignment: Alignment.centerLeft,
-                            child: Text(
-                              "Password",
-                              style: AppTextStyles.label,
-                            ),
-                          ),
-                          const SizedBox(height: 5),
-                          glassTextField(
-                            hintText: 'Password',
-                            controller: loginVM.password,
-                            obscureText: isVisible,
-                            isPasswordField: true,
-                            toggleObscureText: () {
-                              setState(() {
-                                isVisible = !isVisible;
-                              });
-                            },
-                          ),
-                          Align(
-                            alignment: Alignment.centerRight,
-                            child: TextButton(
-                              onPressed: () {},
-                              child: const Text(
-                                'Forgot password?',
+                      child: SingleChildScrollView(
+                        child: Column(
+                          mainAxisAlignment: MainAxisAlignment.center,
+                          crossAxisAlignment: CrossAxisAlignment.center,
+                          children: [
+                            Align(
+                              alignment: Alignment.centerLeft,
+                              child: Text(
+                                "Email",
                                 style: AppTextStyles.label,
                               ),
                             ),
-                          ),
-                          const SizedBox(height: 20),
-                          TextButton(
-                            onPressed: loginVM.loading
-                                ? null
-                                : startFadeOutAndNavigate,
-                            style: TextButton.styleFrom(
-                              backgroundColor:
-                                  const Color.fromARGB(255, 97, 155, 255),
-                              shape: RoundedRectangleBorder(
-                                borderRadius: BorderRadius.circular(10),
-                              ),
-                              minimumSize: const Size(double.infinity, 50),
+                            const SizedBox(height: 5),
+                            glassTextField(
+                              hintText: 'abc@gmail.com',
+                              controller: loginVM.email,
+                              isPasswordField: false,
+                              obscureText: false,
+                              toggleObscureText: () => null,
                             ),
-                            child: loginVM.loading
-                                ? const CircularProgressIndicator(
-                                    color: Colors.white)
-                                : const Text(
-                                    'Log In',
-                                    style: TextStyle(
-                                      color: Colors.black87,
-                                      letterSpacing: 1.1,
-                                    ),
-                                  ),
-                          ),
-                          const SizedBox(height: 20),
-                          TextButton(
-                            onPressed: () {},
-                            child: RichText(
-                              text: const TextSpan(
-                                text: "Don't have an account? ",
-                                style: TextStyle(
-                                  color: Color.fromARGB(106, 255, 255, 255),
+                            const SizedBox(height: 20),
+                            Align(
+                              alignment: Alignment.centerLeft,
+                              child: Text(
+                                "Password",
+                                style: AppTextStyles.label,
+                              ),
+                            ),
+                            const SizedBox(height: 5),
+                            glassTextField(
+                              hintText: 'Password',
+                              controller: loginVM.password,
+                              obscureText: isVisible,
+                              isPasswordField: true,
+                              toggleObscureText: () {
+                                setState(() {
+                                  isVisible = !isVisible;
+                                });
+                              },
+                            ),
+                            Align(
+                              alignment: Alignment.centerRight,
+                              child: TextButton(
+                                onPressed: () {},
+                                child: const Text(
+                                  'Forgot password?',
+                                  style: AppTextStyles.label,
                                 ),
-                                children: [
-                                  TextSpan(
-                                    text: "Sign up",
-                                    style: TextStyle(
-                                      color: Colors.white,
-                                      letterSpacing: 1.1,
-                                      fontWeight: FontWeight.bold,
-                                    ),
-                                  ),
-                                ],
                               ),
                             ),
-                          ),
-                        ],
+                            const SizedBox(height: 20),
+                            TextButton(
+                              onPressed: loginVM.loading
+                                  ? null
+                                  : startFadeOutAndNavigate,
+                              style: TextButton.styleFrom(
+                                backgroundColor:
+                                    const Color.fromARGB(255, 97, 155, 255),
+                                shape: RoundedRectangleBorder(
+                                  borderRadius: BorderRadius.circular(10),
+                                ),
+                                minimumSize: const Size(double.infinity, 50),
+                              ),
+                              child: loginVM.loading
+                                  ? const CircularProgressIndicator(
+                                      color: Colors.white)
+                                  : const Text(
+                                      'Log In',
+                                      style: TextStyle(
+                                        color: Colors.black87,
+                                        letterSpacing: 1.1,
+                                      ),
+                                    ),
+                            ),
+                            const SizedBox(height: 20),
+                            TextButton(
+                              onPressed: () {},
+                              child: RichText(
+                                text: const TextSpan(
+                                  text: "Don't have an account? ",
+                                  style: TextStyle(
+                                    color: Color.fromARGB(106, 255, 255, 255),
+                                  ),
+                                  children: [
+                                    TextSpan(
+                                      text: "Sign up",
+                                      style: TextStyle(
+                                        color: Colors.white,
+                                        letterSpacing: 1.1,
+                                        fontWeight: FontWeight.bold,
+                                      ),
+                                    ),
+                                  ],
+                                ),
+                              ),
+                            ),
+                          ],
+                        ),
                       ),
                     ),
                   ),

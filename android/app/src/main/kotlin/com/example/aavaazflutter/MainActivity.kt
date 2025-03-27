@@ -112,4 +112,24 @@ class MainActivity : FlutterActivity() {
             Log.e("AudioRecorder", "File not found: $filePath")
         }
     }
+
+        // stop playing
+        private fun stopPlayRecording(result: MethodChannel.Result) {
+        try {
+            mediaPlayer?.apply {
+                if (isPlaying) {
+                    stop()
+                    release()
+                }
+            }
+            mediaPlayer = null
+
+            Log.d("AudioRecorder", "Playback stopped")
+            result.success("Playback stopped")
+        } catch (e: Exception) {
+            result.error("STOP_PLAY_FAILED", "Failed to stop playback", e.localizedMessage)
+            Log.e("AudioRecorder", "Error stopping playback: ${e.localizedMessage}")
+        }
+    }
+
 }

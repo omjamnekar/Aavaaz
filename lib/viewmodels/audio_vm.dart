@@ -26,4 +26,12 @@ class AudioRecorder {
       print("Error playing recording: $e");
     }
   }
+
+  Future<void> stopPlayRecording() async {
+    try {
+      await _channel.invokeMethod("stopPlayRecording");
+    } catch (e) {
+      print("Error playing recording: $e");
+    }
+  }
 }

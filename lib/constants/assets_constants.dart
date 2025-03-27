@@ -5,4 +5,5 @@ class AssetsConstants {
   static const String logo = "assets/utils/logo1.png";
   static const String userProfile = "assets/utils/user.png";
   static const String mic = 'assets/utils/mic.png';
+  // static const String audiotrack = "assets/gifs/audio.gif";
 }
