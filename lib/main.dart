@@ -1,4 +1,5 @@
 import 'package:aavaazflutter/views/recording_src.dart';
+import 'package:aavaazflutter/views/splash_src.dart';
 import 'package:flutter/material.dart';
 
 void main() {
@@ -17,9 +18,9 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(
         primarySwatch: Colors.blue,
       ),
-      home: RecordingScreen(),
+      // shome: RecordingScreen(),
 
-      // home: SplashScreen(),
+      home: SplashScreen(),
     );
   }
 }
